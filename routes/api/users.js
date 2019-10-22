@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
+const fs = require("fs");
 
 //@route  POST api/users
 //@desc   Submitting form data
@@ -32,7 +33,19 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    res.send(req.body);
+    res.send(req.body); //Just for test
+
+    const data = JSON.stringify(req.body);
+    const path = `${process.cwd()}/client/public/test.txt`;
+
+    fs.writeFile(path, data, err => {
+      if (err) {
+        console.error(err); //FIX THIS
+        return;
+      }
+
+      console.log("Form submitted");
+    });
   }
 );
 
