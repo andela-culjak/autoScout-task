@@ -46,6 +46,13 @@ const UserForm = ({ submitForm }) => {
       termsError: ""
     };
 
+    //downloaded, allows numbers without national code eg. +000
+    //const regexPhone = /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s]?[(]?[0-9]{1,3}[)]?([-\s]?[0-9]{3})([-\s]?[0-9]{3,4})/;
+
+    // homemade regex, checks if its in form of +0000000000, accepts whitespaces
+    const regexPhone = /^\+[\d\s]{9,25}$/gi;
+    const regexEmail = /^(([^<>()\],;:\s@]+(\.[^<>()\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i;
+
     if (firstName.length < 1) {
       isError = true;
       errors.firstNameError = "First name required";
@@ -61,10 +68,17 @@ const UserForm = ({ submitForm }) => {
     if (phone.length < 1) {
       isError = true;
       errors.phoneError = "Phone required";
+    } else if (!regexPhone.test(phone)) {
+      isError = true;
+      errors.phoneError =
+        "Bad phone format, please enter in form of +0000000000";
     }
     if (email.length < 1) {
       isError = true;
       errors.emailError = "Email required";
+    } else if (!regexEmail.test(email)) {
+      isError = true;
+      errors.emailError = "Bad email format";
     }
     if (terms === false) {
       isError = true;
@@ -82,12 +96,13 @@ const UserForm = ({ submitForm }) => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = e => {
     e.preventDefault();
 
     const err = validate();
 
     if (!err) {
+      //why is this async and wont work without thunk?
       submitForm({ firstName, lastName, address, phone, email, terms });
       setFormData({
         firstName: "",
@@ -161,7 +176,7 @@ const UserForm = ({ submitForm }) => {
         </div>
         <div className="form-group">
           <input
-            type="email"
+            type="text"
             placeholder="Email Address"
             name="email"
             value={email}

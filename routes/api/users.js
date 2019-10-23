@@ -20,32 +20,30 @@ router.post(
     check("phone", "Phone required")
       .not()
       .isEmpty(),
-    //check("Phone", "Bad format").isMobilePhone(), NEED TO FIX
+    //check("Phone", "Bad format").isNumeric,
     check("email", "Email required")
       .not()
       .isEmpty(),
     //check("Email", "Bad format").isEmail(),
-    check("terms", "Must be boolean").isBoolean() //NEED TO FIX (convert to string?)
+    check("terms", "Terms and conditions must be checked").equals("true")
   ],
-  (req, res) => {
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    res.send(req.body); //Just for test
-
     const data = JSON.stringify(req.body);
-    const path = `${process.cwd()}/client/public/test.txt`;
+    const path = `${process.cwd()}/test.txt`;
 
-    fs.writeFile(path, data, err => {
+    await fs.writeFile(path, data, err => {
       if (err) {
         console.error(err); //FIX THIS
         return;
       }
-
-      console.log("Form submitted");
     });
+    console.log("Form submitted");
+    res.send(req.body);
   }
 );
 

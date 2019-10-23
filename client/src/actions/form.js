@@ -18,12 +18,12 @@ export const submitForm = formData => async dispatch => {
 
     //redirect or something
   } catch (err) {
-    const errors = err.response.data.errors;
+    const errors = err.response.data.errors; //not correct
 
     if (errors) {
       errors.forEach(error => console.log(error.msg)); //FIX LATER
 
-      //TODO DISPATCH PROFILE ERROR
+      //TODO Dispatch SUBMIT_FAIL
     }
   }
 };

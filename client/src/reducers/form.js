@@ -9,7 +9,10 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case SUBMIT_FORM:
-      return { ...state, lastUser: payload };
+      return {
+        ...state,
+        lastUser: payload
+      };
     default:
       return state;
   }
