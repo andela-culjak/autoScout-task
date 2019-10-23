@@ -1,1 +1,1 @@
-{"First name":"Andela","Last name":"Culjak","Address":"Mali put 34a","Phone":"+34711222333","Email":"aculja00@fesb.hr","Terms":"true"}
+{"firstName":"Andela ","lastName":"Culjak","address":"Avenida Jose Mesa y Lopez 5","phone":"+3850000000","email":"firstm@gmail.com","terms":true}

@@ -1,10 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
-import { setAlert } from "../actions/alert";
-//import { submitForm } from "../actions/userform";
+import { submitForm } from "../actions/form";
 import PropTypes from "prop-types";
 
-const UserForm = ({ setAlert /*, submitForm */ }) => {
+const UserForm = ({ submitForm }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -89,8 +88,7 @@ const UserForm = ({ setAlert /*, submitForm */ }) => {
     const err = validate();
 
     if (!err) {
-      console.log(formData);
-      setAlert("Form submitted!", "success");
+      submitForm({ firstName, lastName, address, phone, email, terms });
       setFormData({
         firstName: "",
         lastName: "",
@@ -105,7 +103,6 @@ const UserForm = ({ setAlert /*, submitForm */ }) => {
         emailError: "",
         termsError: ""
       });
-      //submitForm({ fistName, lastName, address, phone, email, terms });
     }
   };
 
@@ -194,12 +191,10 @@ const UserForm = ({ setAlert /*, submitForm */ }) => {
 };
 
 UserForm.propTypes = {
-  setAlert:
-    PropTypes.func.isRequired /*,
-  submitForm: PropTypes.func.isRequired*/
+  submitForm: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { setAlert /*, submitForm*/ }
+  { submitForm }
 )(UserForm);

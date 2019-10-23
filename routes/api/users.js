@@ -8,24 +8,24 @@ const fs = require("fs");
 router.post(
   "/",
   [
-    check("First name", "First name required")
+    check("firstName", "First name required")
       .not()
       .isEmpty(),
-    check("Last name", "Last name required")
+    check("lastName", "Last name required")
       .not()
       .isEmpty(),
-    check("Address", "Address required")
+    check("address", "Address required")
       .not()
       .isEmpty(),
-    check("Phone", "Phone required")
+    check("phone", "Phone required")
       .not()
       .isEmpty(),
-    check("Phone", "Bad format").isMobilePhone(), //NEED TO FIX
-    check("Email", "Email required")
+    //check("Phone", "Bad format").isMobilePhone(), NEED TO FIX
+    check("email", "Email required")
       .not()
       .isEmpty(),
-    check("Email", "Bad format").isEmail(),
-    check("Terms", "Must be boolean").isBoolean() //NEED TO FIX (convert to string?)
+    //check("Email", "Bad format").isEmail(),
+    check("terms", "Must be boolean").isBoolean() //NEED TO FIX (convert to string?)
   ],
   (req, res) => {
     const errors = validationResult(req);
