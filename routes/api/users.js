@@ -20,11 +20,10 @@ router.post(
     check("phone", "Phone required")
       .not()
       .isEmpty(),
-    //check("Phone", "Bad format").isNumeric,
     check("email", "Email required")
       .not()
       .isEmpty(),
-    //check("Email", "Bad format").isEmail(),
+    check("email", "Bad email format").isEmail(),
     check("terms", "Terms and conditions must be checked").equals("true")
   ],
   async (req, res) => {

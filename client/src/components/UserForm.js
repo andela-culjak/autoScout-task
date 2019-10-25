@@ -50,7 +50,7 @@ const UserForm = ({ submitForm }) => {
     //const regexPhone = /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s]?[(]?[0-9]{1,3}[)]?([-\s]?[0-9]{3})([-\s]?[0-9]{3,4})/;
 
     // homemade regex, checks if its in form of +0000000000, accepts whitespaces
-    const regexPhone = /^\+[\d\s]{9,25}$/gi;
+    const regexPhone = /^\+[\d\s]{8,25}$/gi;
     const regexEmail = /^(([^<>()\],;:\s@]+(\.[^<>()\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i;
 
     if (firstName.length < 1) {
