@@ -44,6 +44,8 @@ router.post(
     console.log("Form submitted");
     res.send(req.body);
   }
+
+  //catch server error to dispatch SUBMIT_FAIL
 );
 
 module.exports = router;

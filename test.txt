@@ -1,1 +1,1 @@
-{"firstName":"Pero","lastName":"Matic","address":"Avenida Jose Mesa y Lopez 5","phone":"+3850000000","email":"firstm@gmail.com","terms":true}
+{"firstName":"Jure","lastName":"Juric","address":"Avenida Jose Mesa y Lopez 5","phone":"+38598769969","email":"sarasmith@gmail.com","terms":true}

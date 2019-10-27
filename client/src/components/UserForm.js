@@ -1,16 +1,20 @@
 import React, { Fragment, useState } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { submitForm } from "../actions/form";
 import PropTypes from "prop-types";
 
-const UserForm = ({ submitForm }) => {
+const UserForm = ({ submitForm, history }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     address: "",
     phone: "",
     email: "",
-    terms: false,
+    terms: false
+  });
+
+  const [formErrors, setFormErrors] = useState({
     firstNameError: "",
     lastNameError: "",
     addressError: "",
@@ -19,20 +23,16 @@ const UserForm = ({ submitForm }) => {
     termsError: ""
   });
 
+  const { firstName, lastName, address, phone, email, terms } = formData;
+
   const {
-    firstName,
-    lastName,
-    address,
-    phone,
-    email,
-    terms,
     firstNameError,
     lastNameError,
     addressError,
     phoneError,
     emailError,
     termsError
-  } = formData;
+  } = formErrors;
 
   const validate = () => {
     let isError = false;
@@ -49,7 +49,7 @@ const UserForm = ({ submitForm }) => {
     //downloaded, allows numbers without national code eg. +000
     //const regexPhone = /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s]?[(]?[0-9]{1,3}[)]?([-\s]?[0-9]{3})([-\s]?[0-9]{3,4})/;
 
-    // homemade regex, checks if its in form of +0000000000, accepts whitespaces
+    // checks if form of +0000000000, accepts whitespaces
     const regexPhone = /^\+[\d\s]{8,25}$/gi;
     const regexEmail = /^(([^<>()\],;:\s@]+(\.[^<>()\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i;
 
@@ -85,8 +85,8 @@ const UserForm = ({ submitForm }) => {
       errors.termsError = "Must accept terms and conditions";
     }
 
-    setFormData({
-      ...formData,
+    setFormErrors({
+      ...formErrors,
       ...errors
     });
 
@@ -102,22 +102,8 @@ const UserForm = ({ submitForm }) => {
     const err = validate();
 
     if (!err) {
-      //why is this async and wont work without thunk?
-      submitForm({ firstName, lastName, address, phone, email, terms });
-      setFormData({
-        firstName: "",
-        lastName: "",
-        address: "",
-        phone: "",
-        email: "",
-        terms: false,
-        firstNameError: "",
-        lastNameError: "",
-        addressError: "",
-        phoneError: "",
-        emailError: "",
-        termsError: ""
-      });
+      console.log(formData);
+      submitForm(formData, history);
     }
   };
 
@@ -212,4 +198,4 @@ UserForm.propTypes = {
 export default connect(
   null,
   { submitForm }
-)(UserForm);
+)(withRouter(UserForm));

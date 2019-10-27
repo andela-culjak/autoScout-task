@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SUBMIT_FORM } from "./types";
 
-export const submitForm = formData => async dispatch => {
+export const submitForm = (formData, history) => async dispatch => {
   try {
     const config = {
       headers: {
@@ -17,6 +17,7 @@ export const submitForm = formData => async dispatch => {
     });
 
     //redirect or something
+    history.push("/success");
   } catch (err) {
     const errors = err.response.data.errors; //not correct
 
