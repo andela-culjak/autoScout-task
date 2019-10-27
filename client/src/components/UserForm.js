@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { submitForm } from "../actions/form";
+import { validate } from "../validate";
 import PropTypes from "prop-types";
 
 const UserForm = ({ submitForm, history }) => {
@@ -34,74 +35,19 @@ const UserForm = ({ submitForm, history }) => {
     termsError
   } = formErrors;
 
-  const validate = () => {
-    let isError = false;
-
-    const errors = {
-      firstNameError: "",
-      lastNameError: "",
-      addressError: "",
-      phoneError: "",
-      emailError: "",
-      termsError: ""
-    };
-
-    //downloaded, allows numbers without national code eg. +000
-    //const regexPhone = /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s]?[(]?[0-9]{1,3}[)]?([-\s]?[0-9]{3})([-\s]?[0-9]{3,4})/;
-
-    // checks if form of +0000000000, accepts whitespaces
-    const regexPhone = /^\+[\d\s]{8,25}$/gi;
-    const regexEmail = /^(([^<>()\],;:\s@]+(\.[^<>()\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+\.)+[^<>()[\],;:\s@]{2,})$/i;
-
-    if (firstName.length < 1) {
-      isError = true;
-      errors.firstNameError = "First name required";
-    }
-    if (lastName.length < 1) {
-      isError = true;
-      errors.lastNameError = "Last name required";
-    }
-    if (address.length < 1) {
-      isError = true;
-      errors.addressError = "Address required";
-    }
-    if (phone.length < 1) {
-      isError = true;
-      errors.phoneError = "Phone required";
-    } else if (!regexPhone.test(phone)) {
-      isError = true;
-      errors.phoneError =
-        "Bad phone format, please enter in form of +0000000000";
-    }
-    if (email.length < 1) {
-      isError = true;
-      errors.emailError = "Email required";
-    } else if (!regexEmail.test(email)) {
-      isError = true;
-      errors.emailError = "Bad email format";
-    }
-    if (terms === false) {
-      isError = true;
-      errors.termsError = "Must accept terms and conditions";
-    }
-
-    setFormErrors({
-      ...formErrors,
-      ...errors
-    });
-
-    return isError;
-  };
-
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
 
-    const err = validate();
+    const { errors, isError } = validate(formData);
 
-    if (!err) {
+    setFormErrors({
+      ...formErrors,
+      ...errors
+    });
+    if (!isError) {
       console.log(formData);
       submitForm(formData, history);
     }
@@ -111,7 +57,8 @@ const UserForm = ({ submitForm, history }) => {
     <Fragment>
       <h1 className="large text-primary">User Form</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Please fill out required information
+        {" "}
+        Please fill the required information in order to apply{" "}
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">

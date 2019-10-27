@@ -16,13 +16,12 @@ export const submitForm = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    //redirect or something
     history.push("/success");
   } catch (err) {
-    const errors = err.response.data.errors; //not correct
+    const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach(error => console.log(error.msg)); //FIX LATER
+      errors.forEach(error => console.log(error.msg));
 
       //TODO Dispatch SUBMIT_FAIL
     }
