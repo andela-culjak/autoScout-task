@@ -22,8 +22,6 @@ export const submitForm = (formData, history) => async dispatch => {
 
     if (errors) {
       errors.forEach(error => console.log(error.msg));
-
-      //TODO Dispatch SUBMIT_FAIL
     }
   }
 };

@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 const Success = () => {
   return (
-    <div>
-      <h2>Success!</h2>
+    <div className="success">
+      <h2 id="success-msg" className="medium text-primary">
+        Your application has been saved.
+      </h2>
 
-      <Link to="/" className="btn btn-light">
-        {" "}
-        Go back{" "}
+      <Link to="/">
+        <button className="btn btn-primary">Go back</button>
       </Link>
     </div>
   );

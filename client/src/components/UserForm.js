@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { submitForm } from "../actions/form";
@@ -48,29 +48,27 @@ const UserForm = ({ submitForm, history }) => {
       ...errors
     });
     if (!isError) {
-      console.log(formData);
       submitForm(formData, history);
     }
   };
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">User Form</h1>
-      <p className="lead">
-        {" "}
-        Please fill the required information in order to apply{" "}
-      </p>
+    <div className="user-form">
+      <h1 className="large text-primary">Application Form</h1>
+      <p className="lead"> Please enter required information </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Fist Name"
+            placeholder="First Name"
             name="firstName"
             value={firstName}
             onChange={e => onChange(e)}
           />
-          {firstNameError.length > 0 && (
-            <span className="error">{firstNameError}</span>
+          {firstNameError.length > 0 ? (
+            <span className="text-error">{firstNameError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
           )}
         </div>
         <div className="form-group">
@@ -81,8 +79,10 @@ const UserForm = ({ submitForm, history }) => {
             value={lastName}
             onChange={e => onChange(e)}
           />
-          {lastNameError.length > 0 && (
-            <span className="error">{lastNameError}</span>
+          {lastNameError.length > 0 ? (
+            <span className="text-error">{lastNameError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
           )}
         </div>
         <div className="form-group">
@@ -93,8 +93,10 @@ const UserForm = ({ submitForm, history }) => {
             value={address}
             onChange={e => onChange(e)}
           />
-          {addressError.length > 0 && (
-            <span className="error">{addressError}</span>
+          {addressError.length > 0 ? (
+            <span className="text-error">{addressError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
           )}
         </div>
         <div className="form-group">
@@ -105,7 +107,11 @@ const UserForm = ({ submitForm, history }) => {
             value={phone}
             onChange={e => onChange(e)}
           />
-          {phoneError.length > 0 && <span className="error">{phoneError}</span>}
+          {phoneError.length > 0 ? (
+            <span className="text-error">{phoneError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
+          )}
         </div>
         <div className="form-group">
           <input
@@ -115,10 +121,14 @@ const UserForm = ({ submitForm, history }) => {
             value={email}
             onChange={e => onChange(e)}
           />
-          {emailError.length > 0 && <span className="error">{emailError}</span>}
+          {emailError.length > 0 ? (
+            <span className="text-error">{emailError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
+          )}
         </div>
         <div className="form-group">
-          <p>
+          <p className="text-error">
             <input
               type="checkbox"
               name="terms"
@@ -130,11 +140,15 @@ const UserForm = ({ submitForm, history }) => {
             />{" "}
             I agree to Terms and Conditions
           </p>
-          {termsError.length > 0 && <span className="error">{termsError}</span>}
+          {termsError.length > 0 ? (
+            <span className="text-error">{termsError}</span>
+          ) : (
+            <span className="text-error hidden"> hidden </span>
+          )}
         </div>
         <input type="submit" className="btn btn-primary" value="Save" />
       </form>
-    </Fragment>
+    </div>
   );
 };
 

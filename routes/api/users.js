@@ -37,15 +37,12 @@ router.post(
 
     await fs.writeFile(path, data, err => {
       if (err) {
-        console.error(err); //FIX THIS
+        console.error(err);
         return;
       }
     });
-    console.log("Form submitted");
     res.send(req.body);
   }
-
-  //catch server error to dispatch SUBMIT_FAIL
 );
 
 module.exports = router;

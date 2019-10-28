@@ -1,1 +1,1 @@
-{"firstName":"Pero","lastName":"Culjak","address":"Avenida Jose Mesa y Lopez 5","phone":"+3850000000","email":"sarasmith@gmail.com","terms":true}
+{"firstName":"Andela","lastName":"Culjak","address":"Mali put 34a","phone":"+38598610442","email":"andela212@gmail.com","terms":true}
