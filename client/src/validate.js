@@ -52,7 +52,7 @@ export const validate = ({
   }
   if (terms === false) {
     isError = true;
-    errors.termsError = "Must accept terms and conditions";
+    errors.termsError = "Must be of age and agree to terms in order to proceed";
   }
 
   return { isError, errors };

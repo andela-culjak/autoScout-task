@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Cagliostro|Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cagliostro|Fredericka+the+Great|Special+Elite&display=swap");
 
 /* General */
 :root {
-  --primary-color: rgba(208, 231, 236, 0.938);
-  --dark-color: rgba(7, 4, 27, 0.664);
-  --light-color: rgba(255, 255, 255, 0.58);
+  --primary-color: rgb(255, 255, 255);
+  --light-color: rgba(255, 255, 255, 0.815);
   --borders-1: rgba(42, 72, 124, 0.644);
 }
 
@@ -23,19 +22,37 @@ body {
 .container {
   min-height: 100vh;
   margin: auto;
-  overflow: hidden;
+  background: url("./img/autumn2dark.jpg") no-repeat right center/cover;
+}
+
+.overlay {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(97, 153, 144, 0.055);
+  /*background-color: transparent;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("./img/autumn2f.jpg") no-repeat fixed center/cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4vw;
+  border: 1px solid var(--borders-1);
+}
+
+.title-container {
+  width: 20vw;
+  background: url("./img/autumn2hl.jpg") no-repeat center/cover;
+  padding: 3%;
+  border-right: 1px solid var(--borders-1);
 }
 
 .user-form {
-  margin-top: 5vh;
-  width: 45vw;
+  width: 27vw;
   padding: 5%;
-  border: 1px solid var(--borders-1);
-  background: var(--dark-color);
+  background: rgba(119, 115, 150, 0.329);
 }
 
 .success {
@@ -43,17 +60,32 @@ body {
   width: 40vw;
   padding: 3%;
   border: 1px solid var(--borders-1);
-  background: var(--dark-color);
+  background: rgba(162, 151, 235, 0.253);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 /* Text Styles*/
-.medium {
-  font-size: 1.8rem;
+
+.xx-large {
+  font-size: 6rem;
   font-weight: normal;
-  margin-bottom: 1rem;
+  color: var(--light-color);
+  /*-webkit-text-stroke: 1px white;*/
+  font-family: "Fredericka the Great", cursive;
+  font-family: "Special Elite", cursive;
+}
+
+.x-large {
+  margin-top: -5%;
+  margin-bottom: -2%;
+  font-size: 4rem;
+  font-weight: normal;
+  color: var(--light-color);
+  /*-webkit-text-stroke: 1px white;*/
+  font-family: "Fredericka the Great", cursive;
+  font-family: "Special Elite", cursive;
 }
 
 .large {
@@ -61,6 +93,12 @@ body {
   line-height: 1.2;
   margin-bottom: 0.5rem;
   font-weight: normal;
+}
+
+.medium {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
 }
 
 .lead {
@@ -98,7 +136,7 @@ body {
 }
 
 .btn-primary {
-  background: var(--borders-1);
+  background: rgba(19, 52, 94, 0.63);
   font-family: "Cagliostro", sans-serif;
   color: #fff;
 }
@@ -127,24 +165,47 @@ body {
   width: 100%;
   padding: 0.35rem;
   font-size: 1.2rem;
-  border: 1px solid var(--borders-1);
-  background: var(--dark-color);
+  border: 1px solid rgba(119, 129, 221, 0.356);
+  background: rgba(1, 9, 19, 0.288);
 }
 
-input::placeholder,
+input::placeholder {
+  font-family: "Cagliostro", sans-serif;
+  color: rgba(190, 204, 233, 0.938);
+}
+
 input {
   font-family: "Cagliostro", sans-serif;
-  color: var(--light-color);
+  color: rgb(255, 255, 255);
 }
 
 .hidden {
   opacity: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
+  .wrapper {
+    margin-top: 5vw;
+  }
+
+  .title-container {
+    width: 23vw;
+    padding: 3%;
+  }
+
   .user-form {
-    margin-top: 6vh;
-    width: 55vw;
+    width: 30vw;
+  }
+
+  .xx-large {
+    font-size: 5rem;
+    font-weight: normal;
+  }
+
+  .x-large {
+    margin-top: -5%;
+    margin-bottom: -2%;
+    font-size: 4rem;
   }
   .large {
     font-size: 1.8rem;
@@ -168,23 +229,41 @@ input {
   }
 }
 
-@media (max-width: 700px) {
-  .user-form {
-    margin-top: 5vh;
-    width: 80vw;
-    padding: 4%;
-  }
-  .large {
-    font-size: 1.4rem;
+@media (max-width: 1150px) {
+  .wrapper {
+    margin-top: 5vw;
   }
 
+  .title-container {
+    width: 26vw;
+    padding: 3%;
+  }
+
+  .user-form {
+    width: 32vw;
+  }
+
+  .xx-large {
+    font-size: 4rem;
+    font-weight: normal;
+  }
+
+  .x-large {
+    margin-top: -5%;
+    margin-bottom: -2%;
+    font-size: 3rem;
+  }
+  .large {
+    font-size: 1.6rem;
+  }
   .medium {
     font-size: 1.1rem;
   }
 
   .lead {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
+
   .btn {
     font-size: 0.8rem;
   }
@@ -192,6 +271,147 @@ input {
     font-size: 0.9rem;
   }
   .text-error {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    margin-top: 4vw;
+  }
+
+  .title-container {
+    width: 30vw;
+    padding: 3%;
+  }
+
+  .user-form {
+    width: 40vw;
+  }
+
+  .xx-large {
+    font-size: 3.8rem;
+    font-weight: normal;
+  }
+
+  .x-large {
+    margin-top: -3%;
+    margin-bottom: -8%;
+    font-size: 1.9rem;
+  }
+  .large {
+    font-size: 1.4rem;
+  }
+  .medium {
+    font-size: 1rem;
+  }
+
+  .lead {
     font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+  }
+  .form input[type="text"] {
+    font-size: 0.8rem;
+  }
+  .text-error {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 700px) {
+  .wrapper {
+    margin-top: 4vw;
+    flex-direction: column;
+  }
+
+  .title-container {
+    width: 70vw;
+    padding: 3%;
+    padding-bottom: 15%;
+  }
+
+  .user-form {
+    width: 70vw;
+  }
+
+  .xx-large {
+    font-size: 3rem;
+    font-weight: normal;
+  }
+
+  .x-large {
+    margin-top: -1%;
+    margin-bottom: -4%;
+    font-size: 1.4rem;
+  }
+  .large {
+    font-size: 1.4rem;
+  }
+  .medium {
+    font-size: 0.9rem;
+  }
+
+  .lead {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+  }
+  .form input[type="text"] {
+    font-size: 0.8rem;
+  }
+  .text-error {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin-top: 4vw;
+    flex-direction: column;
+  }
+
+  .title-container {
+    width: 70vw;
+    padding: 3%;
+    padding-bottom: 15%;
+  }
+
+  .user-form {
+    width: 70vw;
+  }
+
+  .xx-large {
+    font-size: 2.6rem;
+    font-weight: normal;
+  }
+
+  .x-large {
+    margin-top: -3%;
+    margin-bottom: -8%;
+    font-size: 1.2rem;
+  }
+  .large {
+    font-size: 1.4rem;
+  }
+  .medium {
+    font-size: 0.8rem;
+  }
+
+  .lead {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.6rem;
+  }
+  .form input[type="text"] {
+    font-size: 0.8rem;
+  }
+  .text-error {
+    font-size: 0.7rem;
   }
 }

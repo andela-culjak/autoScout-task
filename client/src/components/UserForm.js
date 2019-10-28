@@ -53,101 +53,109 @@ const UserForm = ({ submitForm, history }) => {
   };
 
   return (
-    <div className="user-form">
-      <h1 className="large text-primary">Application Form</h1>
-      <p className="lead"> Please enter required information </p>
-      <form className="form" onSubmit={e => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="First Name"
-            name="firstName"
-            value={firstName}
-            onChange={e => onChange(e)}
-          />
-          {firstNameError.length > 0 ? (
-            <span className="text-error">{firstNameError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            value={lastName}
-            onChange={e => onChange(e)}
-          />
-          {lastNameError.length > 0 ? (
-            <span className="text-error">{lastNameError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Address"
-            name="address"
-            value={address}
-            onChange={e => onChange(e)}
-          />
-          {addressError.length > 0 ? (
-            <span className="text-error">{addressError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Phone"
-            name="phone"
-            value={phone}
-            onChange={e => onChange(e)}
-          />
-          {phoneError.length > 0 ? (
-            <span className="text-error">{phoneError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-          />
-          {emailError.length > 0 ? (
-            <span className="text-error">{emailError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <div className="form-group">
-          <p className="text-error">
+    <div className="wrapper">
+      <div className="title-container">
+        <h1 className="xx-large text-light">2019</h1>
+        <h1 className="x-large">autumn</h1>
+        <br />
+        <h1 className="x-large">camp</h1>
+      </div>
+      <div className="user-form">
+        <h1 className="large text-primary">Apply here</h1>
+        <p className="lead"> Please enter required information </p>
+        <form className="form" onSubmit={e => onSubmit(e)}>
+          <div className="form-group">
             <input
-              type="checkbox"
-              name="terms"
-              checked={terms}
-              value={terms}
-              onChange={() => {
-                setFormData({ ...formData, terms: !terms });
-              }}
-            />{" "}
-            I agree to Terms and Conditions
-          </p>
-          {termsError.length > 0 ? (
-            <span className="text-error">{termsError}</span>
-          ) : (
-            <span className="text-error hidden"> hidden </span>
-          )}
-        </div>
-        <input type="submit" className="btn btn-primary" value="Save" />
-      </form>
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+              value={firstName}
+              onChange={e => onChange(e)}
+            />
+            {firstNameError.length > 0 ? (
+              <span className="text-error">{firstNameError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              value={lastName}
+              onChange={e => onChange(e)}
+            />
+            {lastNameError.length > 0 ? (
+              <span className="text-error">{lastNameError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Address"
+              name="address"
+              value={address}
+              onChange={e => onChange(e)}
+            />
+            {addressError.length > 0 ? (
+              <span className="text-error">{addressError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Phone"
+              name="phone"
+              value={phone}
+              onChange={e => onChange(e)}
+            />
+            {phoneError.length > 0 ? (
+              <span className="text-error">{phoneError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Email Address"
+              name="email"
+              value={email}
+              onChange={e => onChange(e)}
+            />
+            {emailError.length > 0 ? (
+              <span className="text-error">{emailError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <div className="form-group">
+            <p className="text-error">
+              <input
+                type="checkbox"
+                name="terms"
+                checked={terms}
+                value={terms}
+                onChange={() => {
+                  setFormData({ ...formData, terms: !terms });
+                }}
+              />{" "}
+              I am over 18 and take full responsibility
+            </p>
+            {termsError.length > 0 ? (
+              <span className="text-error">{termsError}</span>
+            ) : (
+              <span className="text-error hidden"> hidden </span>
+            )}
+          </div>
+          <input type="submit" className="btn btn-primary" value="Save" />
+        </form>
+      </div>
     </div>
   );
 };

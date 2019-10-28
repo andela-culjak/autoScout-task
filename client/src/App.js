@@ -14,10 +14,12 @@ const App = () => (
     <Router>
       <Fragment>
         <section className="container">
-          <Switch>
-            <Route exact path="/" component={UserForm} />
-            <Route exact path="/success" component={Success} />
-          </Switch>
+          <div className="overlay">
+            <Switch>
+              <Route exact path="/" component={UserForm} />
+              <Route exact path="/success" component={Success} />
+            </Switch>
+          </div>
         </section>
       </Fragment>
     </Router>

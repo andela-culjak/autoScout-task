@@ -5,7 +5,7 @@ const Success = () => {
   return (
     <div className="success">
       <h2 id="success-msg" className="medium text-primary">
-        Your application has been saved.
+        You have applied successfully!
       </h2>
 
       <Link to="/">

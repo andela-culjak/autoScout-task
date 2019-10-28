@@ -24,7 +24,10 @@ router.post(
       .not()
       .isEmpty(),
     check("email", "Bad email format").isEmail(),
-    check("terms", "Terms and conditions must be checked").equals("true")
+    check(
+      "terms",
+      "Must be of age and agree to terms in order to proceed"
+    ).equals("true")
   ],
   async (req, res) => {
     const errors = validationResult(req);
