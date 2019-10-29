@@ -38,7 +38,7 @@ router.post(
     const data = JSON.stringify(req.body);
     const path = `${process.cwd()}/test.txt`;
 
-    await fs.writeFile(path, data, err => {
+    await fs.appendFile(path, data + "\r\n", err => {
       if (err) {
         console.error(err);
         return;

@@ -1,1 +1,2 @@
-{"firstName":"Andela","lastName":"Culjak","address":"Mali put 34a","phone":"+38598610442","email":"andela212@gmail.com","terms":true}
+{"firstName":"Marko ","lastName":"Bosnjak","address":"Travanjska bb","phone":"+38763558966","email":"mbosnj00@fesb.hr","terms":true}
+{"firstName":"Jure","lastName":"Juric","address":"Juriceva 2","phone":"+38598610442","email":"jjuric@gmail.com","terms":true}
