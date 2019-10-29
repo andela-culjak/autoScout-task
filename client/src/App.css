@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cagliostro|Fredericka+the+Great|Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cagliostro|Special+Elite&display=swap");
 
 /* General */
 :root {
@@ -29,7 +29,6 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: rgba(97, 153, 144, 0.055);
-  /*background-color: transparent;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,8 +71,6 @@ body {
   font-size: 6rem;
   font-weight: normal;
   color: var(--light-color);
-  /*-webkit-text-stroke: 1px white;*/
-  font-family: "Fredericka the Great", cursive;
   font-family: "Special Elite", cursive;
 }
 
@@ -83,8 +80,6 @@ body {
   font-size: 4rem;
   font-weight: normal;
   color: var(--light-color);
-  /*-webkit-text-stroke: 1px white;*/
-  font-family: "Fredericka the Great", cursive;
   font-family: "Special Elite", cursive;
 }
 
@@ -190,7 +185,6 @@ input {
 
   .title-container {
     width: 23vw;
-    padding: 3%;
   }
 
   .user-form {
@@ -199,13 +193,6 @@ input {
 
   .xx-large {
     font-size: 5rem;
-    font-weight: normal;
-  }
-
-  .x-large {
-    margin-top: -5%;
-    margin-bottom: -2%;
-    font-size: 4rem;
   }
   .large {
     font-size: 1.8rem;
@@ -230,10 +217,6 @@ input {
 }
 
 @media (max-width: 1150px) {
-  .wrapper {
-    margin-top: 5vw;
-  }
-
   .title-container {
     width: 26vw;
     padding: 3%;
@@ -261,7 +244,7 @@ input {
   }
 
   .lead {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .btn {
@@ -276,13 +259,8 @@ input {
 }
 
 @media (max-width: 900px) {
-  .wrapper {
-    margin-top: 4vw;
-  }
-
   .title-container {
     width: 30vw;
-    padding: 3%;
   }
 
   .user-form {
@@ -300,26 +278,18 @@ input {
     font-size: 1.9rem;
   }
   .large {
-    font-size: 1.4rem;
-  }
-  .medium {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .lead {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
-  .btn {
-    font-size: 0.7rem;
-  }
-  .form input[type="text"] {
-    font-size: 0.8rem;
-  }
   .text-error {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
+
 @media (max-width: 700px) {
   .wrapper {
     margin-top: 4vw;
@@ -347,43 +317,24 @@ input {
     font-size: 1.4rem;
   }
   .large {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .medium {
     font-size: 0.9rem;
   }
 
-  .lead {
-    font-size: 0.8rem;
-  }
-
   .btn {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .form input[type="text"] {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .text-error {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 500px) {
-  .wrapper {
-    margin-top: 4vw;
-    flex-direction: column;
-  }
-
-  .title-container {
-    width: 70vw;
-    padding: 3%;
-    padding-bottom: 15%;
-  }
-
-  .user-form {
-    width: 70vw;
-  }
-
   .xx-large {
     font-size: 2.6rem;
     font-weight: normal;
@@ -406,12 +357,12 @@ input {
   }
 
   .btn {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
   .form input[type="text"] {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .text-error {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
