@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-//Init middleware (request body parser)
+//Init middleware (body parser, nesting not allowed)
 app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.send("API running"));
